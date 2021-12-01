@@ -1,2 +1,3 @@
-# JS-Site-Template
-Mini site template for JS projects
+# Redd Lyon Financial
+
+An application that generates an amortization schedule for a simple interest loan.

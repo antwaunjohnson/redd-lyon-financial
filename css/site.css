@@ -1,20 +1,42 @@
 :root {
-  --primary: #1d5888;
-  --secondary: #ff993b;
-  --dark: #292929;
-  --white: #e2e4e2;
+  --primary: #c51b29;
+  --secondary: #b59c2c;
+  --text: #6a6b83;
+  --dark: #050609;
+  --white: #fff;
 }
 
 body {
-  color: var(--dark);
+  color: var(--text);
+  font-family: bely, serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.logo-font {
+  font-family: bely-display, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 nav {
-  background: var(--dark);
+  background: var(--primary);
+}
+
+.btn-link {
+  text-decoration: none;
+  color: var(--dark);
+  border: 1px solid var(--dark);
+}
+
+.btn-link:hover {
+  border: var(--secondary);
+  background: var(--secondary);
+  color: var(--white);
 }
 
 footer {
-  background-color: var(--dark);
+  background-color: var(--primary);
   padding: 1rem;
 }
 
@@ -34,7 +56,10 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--primary);
+  color: var(--dark);
+  font-family: bely, serif;
+  font-weight: 700;
+  font-style: normal;
 }
 .bsicon {
   color: rgb(85, 60, 123);
@@ -48,7 +73,7 @@ h6 {
   color: rgb(227, 76, 38);
 }
 
-.cssicon {
+.css3icon {
   color: rgb(38, 77, 228);
 }
 
