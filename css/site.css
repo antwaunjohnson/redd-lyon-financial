@@ -1,0 +1,76 @@
+:root {
+  --primary: #1d5888;
+  --secondary: #ff993b;
+  --dark: #292929;
+  --white: #e2e4e2;
+}
+
+body {
+  color: var(--dark);
+}
+
+nav {
+  background: var(--dark);
+}
+
+footer {
+  background-color: var(--dark);
+  padding: 1rem;
+}
+
+footer .social > a {
+  color: var(--white);
+  opacity: 0.75;
+}
+
+footer .social > a:hover {
+  color: var(--secondary);
+  opacity: 0.9;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary);
+}
+.bsicon {
+  color: rgb(85, 60, 123);
+}
+
+.jsicon {
+  color: rgb(247, 233, 30);
+}
+
+.html5icon {
+  color: rgb(227, 76, 38);
+}
+
+.cssicon {
+  color: rgb(38, 77, 228);
+}
+
+main > .container {
+  padding: 60px 15px 0;
+  margin-bottom: 5rem;
+}
+
+.checklist > li i {
+  color: var(--secondary);
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+.sticky-footer {
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
