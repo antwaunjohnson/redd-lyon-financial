@@ -53,7 +53,94 @@
     </nav>
 
     <main class="flex-shrink-0">
-        <div class="container"></div>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-2 mt-2">
+                <div class="col col-md-4">
+                    <div class="card shadow-lg">
+                        <div class="card-body my-2 d-flex flex-column">
+                            <label for="Loan Amount" class="form-label d-flex flex-column">Loan Amount</label>
+                            <input type="number" name="loan amount" id="loanAmount" placeholder="5000" value="5000"
+                                class="rounded">
+                            <label for="Loan Term" class="form-label d-flex flex-column">Loan Term(Months)</label>
+                            <input type="number" name="loan term" id="loanTerm" placeholder="15" value="15"
+                                class="rounded">
+                            <label for="Interest Rate" class="form-label d-flex flex-column">Interest Rate %</label>
+                            <input type="number" name="interest rate" id="interestRate" placeholder="3" value="3"
+                                class="rounded">
+                            <div class="col-md-2 d-flex">
+                                <button type="button" class="btn btn-link btn-sm mt-2 px-4 me-md-2" id="btnSubmit">
+                                    Calculate
+                                </button>
+                                <button type="button" class="btn btn-link btn-sm mt-2 px-4 me-md-2" id="btnReset">
+                                    Reset
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-md-8">
+                    <div class="card h-100 shadow-lg">
+                        <div class="card-header">
+                            <h2 class="logo-font">Redd Lyon Financial</h2>
+                            <h3>Your Monthly Payment: <span id="montlyPayment"></span></h3>
+                        </div>
+                        <div class="card-body py-2">
+                            <div class="row">
+                                <div class="col-3">
+                                    <h5>Total Principal: </h5>
+                                </div>
+                                <div class="col-6"></div>
+                                <div class="col-3">
+                                    <span id="totalPrincipal"></span>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <h5>Total Interest: </h5>
+                                </div>
+                                <div class="col-6"></div>
+                                <div class="col-3">
+                                    <span id="totalInterest"></span>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-3">
+                                    <h5>Total Cost: </h5>
+                                </div>
+                                <div class="col-6"></div>
+                                <div class="col-3">
+                                    <span id="totalCost"></span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mt-3">
+                    <div class="card invinsible shadow-lg">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table mb-0">
+                                    <tr>
+                                        <th>Month</th>
+                                        <th>Payment</th>
+                                        <th>Principal Paid</th>
+                                        <th>Interest</th>
+                                        <th>Total Interest</th>
+                                        <th>Balance</th>
+                                    </tr>
+                                    <tbody id="results"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="footer mt-auto py-3 sticky-footer">

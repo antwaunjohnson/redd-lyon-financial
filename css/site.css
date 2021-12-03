@@ -6,17 +6,37 @@
   --white: #fff;
 }
 
-body {
+body,
+span {
   color: var(--text);
   font-family: bely, serif;
   font-weight: 400;
   font-style: normal;
 }
 
+input,
+span {
+  font-family: new-order, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+span {
+  font-size: 1.5rem;
+}
+
 .logo-font {
   font-family: bely-display, sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+h2.logo-font {
+  color: var(--primary);
+}
+
+label {
+  font-weight: bold;
 }
 
 nav {
@@ -33,6 +53,11 @@ nav {
   border: var(--secondary);
   background: var(--secondary);
   color: var(--white);
+}
+
+.card-header {
+  background: var(--white);
+  border: none;
 }
 
 footer {
