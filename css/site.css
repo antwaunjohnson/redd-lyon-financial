@@ -6,8 +6,7 @@
   --white: #fff;
 }
 
-body,
-span {
+body {
   color: var(--text);
   font-family: bely, serif;
   font-weight: 400;
@@ -21,7 +20,7 @@ span {
   font-style: normal;
 }
 
-span {
+h3 > span {
   font-size: 1.5rem;
 }
 
