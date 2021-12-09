@@ -59,14 +59,14 @@
                     <div class="card shadow-lg">
                         <form class="card-body my-2 d-flex flex-column">
                             <label for="Loan Amount" class="form-label d-flex flex-column">Loan Amount</label>
-                            <input type="number" name="loan amount" id="loanAmount" placeholder="5000" value="5000"
+                            <input type="number" name="loan amount" id="loanAmount" placeholder="25000" value="25000"
                                 class="rounded">
                             <label for="Loan Term" class="form-label d-flex flex-column">Loan Term(Months)</label>
-                            <input type="number" name="loan term" id="loanTerm" placeholder="15" value="15"
+                            <input type="number" name="loan term" id="loanTerm" placeholder="60" value="60"
                                 class="rounded">
                             <label for="Interest Rate" class="form-label d-flex flex-column">Interest Rate %</label>
-                            <input type="number" name="interest rate" id="interestRate" placeholder="3" value="3"
-                                class="rounded">
+                            <input type="number" step='0.25' name="interest rate" id="interestRate" placeholder="3.00"
+                                value="3.00" class="rounded">
                             <div class="col-md-2 d-flex">
                                 <button type="button" class="btn btn-link btn-sm mt-2 px-4 me-md-2" id="btnSubmit">
                                     Calculate
@@ -124,7 +124,7 @@
             </div>
             <div class="row">
                 <div class="col-12 mt-2">
-                    <div class="card invinsible shadow-lg" id="tableCard">
+                    <div class="card invisible shadow-lg" id="tableCard">
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table mb-0">

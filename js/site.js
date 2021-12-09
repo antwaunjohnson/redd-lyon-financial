@@ -4,13 +4,19 @@ function getValues() {
   let loanTerm = parseFloat(document.getElementById("loanTerm").value);
   let interestRate = parseFloat(document.getElementById("interestRate").value);
 
-  let loanData = loanCalculation(loanAmount, loanTerm, interestRate);
+  if (
+    Number.isInteger(loanAmount) &&
+    Number.isInteger(loanTerm) &&
+    Number.isInteger(interestRate)
+  ) {
+    let loanData = loanCalculation(loanAmount, loanTerm, interestRate);
 
-  displayData(loanData);
+    displayData(loanData, loanTotal);
+  }
 }
 
 function loanCalculation(loanAmount, loanTerm, interestRate) {
-  let loanData = {};
+  let loanData = [];
 
   let balance = loanAmount;
   let interestPayment = 0;
@@ -21,37 +27,64 @@ function loanCalculation(loanAmount, loanTerm, interestRate) {
     (loanAmount * (interestRate / 1200)) /
     (1 - (1 + interestRate / 1200) ** -Math.abs(loanTerm));
 
-  for (let currentMonth = 0; currentMonth <= loanTerm; currentMonth++) {
+  for (let i = 1; i <= loanTerm; i++) {
     interestPayment = balance * (interestRate / 1200);
     principalPayment = monthlyPayment - interestPayment;
     totalInterest = totalInterest + interestPayment;
-    remainingBalance = balance - principalPayment;
+    loanTotal = loanAmount + totalInterest;
+    remainingBalance = balance -= principalPayment;
 
-    loanTotal = balance + totalInterest;
-    loanData.interestPayment = interestPayment.toFixed(2);
-    loanData.principalPayment = principalPayment.toFixed(2);
-    loanData.totalInterest = totalInterest.toFixed(2);
-    loanData.remainingBalance = remainingBalance.toFixed(2);
-    loanData.loanTotal = loanTotal.toFixed(2);
-    loanData.monthlyPayment = monthlyPayment.toFixed(2);
+    let data = {
+      month: i,
+      interestPayment: interestPayment.toFixed(2),
+      principalPayment: principalPayment.toFixed(2),
+      totalInterest: totalInterest.toFixed(2),
+      remainingBalance: remainingBalance.toFixed(2),
+      loanTotal: loanTotal.toFixed(2),
+      monthlyPayment: monthlyPayment.toFixed(2),
+    };
+
+    loanData.push(data);
   }
 
+  document.getElementById(
+    "monthlyPayment"
+  ).innerHTML = `&dollar;${monthlyPayment.toFixed(2)}`;
+  document.getElementById(
+    "totalPrincipal"
+  ).innerHTML = `&dollar;${principalPayment.toFixed(2)}`;
+  document.getElementById("totalCost").innerHTML = `&dollar;${loanTotal.toFixed(
+    2
+  )}`;
+  document.getElementById(
+    "totalInterest"
+  ).innerHTML = `&dollar;${totalInterest.toFixed(2)}`;
   return loanData;
 }
 
 function displayData(loanData) {
-  document.getElementById(
-    "monthlyPayment"
-  ).innerHTML = `&dollar;${loanData.monthlyPayment}`;
-  document.getElementById(
-    "totalPrincipal"
-  ).innerHTML = `&dollar;${loanData.principalPayment}`;
-  document.getElementById(
-    "totalCost"
-  ).innerHTML = `&dollar;${loanData.loanTotal}`;
-  document.getElementById(
-    "totalInterest"
-  ).innerHTML = `&dollar;${loanData.totalInterest}`;
+  let tableBody = document.getElementById("results");
+
+  let templateRow = document.getElementById("lcTemplate");
+
+  document.getElementById("tableCard").classList.remove("invisible");
+
+  tableBody.innerHTML = "";
+
+  for (let index = 0; index < loanData.length; index++) {
+    let tableRow = document.importNode(templateRow.content, true);
+
+    let rowCols = tableRow.querySelectorAll("td");
+
+    rowCols[0].textContent = loanData[index].month;
+    rowCols[1].textContent = loanData[index].monthlyPayment;
+    rowCols[2].textContent = loanData[index].principalPayment;
+    rowCols[3].textContent = loanData[index].interestPayment;
+    rowCols[4].textContent = loanData[index].totalInterest;
+    rowCols[5].textContent = loanData[index].remainingBalance;
+
+    tableBody.appendChild(tableRow);
+  }
 }
 
 function resetForm() {
